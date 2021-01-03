@@ -1,83 +1,87 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <div class="card shadow">
+                <p class="text-center my-5">
+                    <i class="fas fa-laptop-code" style="font-size: 100px;"></i>
+                </p>
+                <div class="card-body">
+                    <h1>Does it run Linux?</h1>
+                    <h4 class="card-title">Share your hardware configuration</h4>
+                    <p class="card-text">
+                        <p>
+                            We've all been there: enthusiastically ordered a new laptop/desktop but one question
+                            remained:
+                        </p>
+                        <p>
+                            <h5><strong>Does it run my favorite distro?</strong></h5>
+                        </p>
+                        <p>
+                            Don't worry - we're here to help!<br>
+                            We're trying to build an crowd-sourced, up-to-date database to reference
+                            which Linux distribution runs on what hardware.
+                        </p>
+                    </p>
+                    <div class="mt-3">
+                        <a href="#configuration-form" class="btn btn-primary text-uppercase font-weight-bold">
+                            Drop your configuration!
+                        </a>
+                        <a href="{{ route('configurations.index') }}"
+                            class="btn btn-warning text-uppercase font-weight-bold ml-0 mt-3 ml-sm-2 mt-sm-0">
+                            Does it run?
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <div id="configuration-form" class="card shadow">
+                <form action="{{ route('configurations.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input id="first_name" type="text"
+                                class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                value="{{ old('first_name') }}" placeholder="VORNAME*" autofocus>
+                            @error('first_name')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <input id="last_name" type="text"
+                                class="form-control @error('last_name') is-invalid @enderror" name="last_name"
+                                value="{{ old('last_name') }}" placeholder="NACHNAME*">
+                            @error('last_name')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary text-uppercase font-weight-bold">
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12">
+        <p class="text-center">
+            <a href="{{ route('configurations.index') }}">Take me to the database!</a>
+        </p>
+    </div>
+</div>
+</div>
+@endsection

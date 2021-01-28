@@ -12122,9 +12122,6 @@ a.text-dark:focus {
 .select2-container--classic.select2-container--open .select2-dropdown {
   border-color: #5897fb;
 }
-#footer-icons {
-  font-size: 40px;
-}
-#footer-icons a {
-  color: gray;
+.pagination {
+  margin: 0;
 }

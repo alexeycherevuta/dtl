@@ -14,7 +14,7 @@ class CreateConfigurationsTable extends Migration
             $table->string('device_model')->nullable()->default(null);
             $table->string('processor_vendor')->nullable()->default(null);
             $table->string('processor_model')->nullable()->default(null);
-            $table->string('os')->nullable()->default(null);
+            $table->string('distribution')->nullable()->default(null);
             $table->string('kernel')->nullable()->default(null);
             $table->mediumText('comment')->nullable()->default(null);
             $table->string('key')->nullable()->default(null);

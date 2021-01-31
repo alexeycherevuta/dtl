@@ -20,13 +20,13 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="device_vendor" class="text-capitalize">Device vendor</label>
-                            <select id="device_vendor" class="form-control" name="device_vendor">
-                                <option value="" {{ request()->device_vendor ? '' : 'selected' }}>-</option>
-                                @foreach($device_vendors as $device_vendor)
-                                <option value="{{ $device_vendor->name }}"
-                                    {{ request()->device_vendor == $device_vendor->name ? 'selected' : '' }}>
-                                    {{ $device_vendor->name }}
+                            <label for="device_manufacturer" class="text-capitalize">Manufacturer</label>
+                            <select id="device_manufacturer" class="form-control" name="device_manufacturer">
+                                <option value="" {{ request()->device_manufacturer ? '' : 'selected' }}>-</option>
+                                @foreach($device_manufacturers as $device_manufacturer)
+                                <option value="{{ $device_manufacturer->name }}"
+                                    {{ request()->device_manufacturer == $device_manufacturer->name ? 'selected' : '' }}>
+                                    {{ $device_manufacturer->name }}
                                 </option>
                                 @endforeach
                             </select>
@@ -46,13 +46,13 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="form-group">
-                            <label for="processor_vendor" class="text-capitalize">Processor vendor</label>
-                            <select id="processor_vendor" class="form-control" name="processor_vendor">
-                                <option value="" {{ request()->processor_vendor ? '' : 'selected' }}>-</option>
-                                @foreach($processor_vendors as $processor_vendor)
-                                <option value="{{ $processor_vendor->name }}"
-                                    {{ request()->processor_vendor == $processor_vendor->name ? 'selected' : '' }}>
-                                    {{ $processor_vendor->name }}
+                            <label for="processor_manufacturer" class="text-capitalize">Processor vendor</label>
+                            <select id="processor_manufacturer" class="form-control" name="processor_manufacturer">
+                                <option value="" {{ request()->processor_manufacturer ? '' : 'selected' }}>-</option>
+                                @foreach($processor_manufacturers as $processor_manufacturer)
+                                <option value="{{ $processor_manufacturer->name }}"
+                                    {{ request()->processor_manufacturer == $processor_manufacturer->name ? 'selected' : '' }}>
+                                    {{ $processor_manufacturer->name }}
                                 </option>
                                 @endforeach
                             </select>
@@ -129,7 +129,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $configuration->device_type }}</td>
-                        <td>{{ $configuration->device_vendor }}</td>
+                        <td>{{ $configuration->device_manufacturer }}</td>
                         <td>{{ $configuration->device_model }}</td>
                         <td>{{ $configuration->processor_model }}</td>
                         <td>{{ $configuration->distribution }}</td>
@@ -144,9 +144,9 @@
     <div class="row my-5 align-items-center justify-content-center">
         {{ $configurations->appends([
                                         'device_type' => request()->device_type,
-                                        'device_vendor' => request()->device_vendor,
+                                        'device_manufacturer' => request()->device_manufacturer,
                                         'device_model' => request()->device_model,
-                                        'processor_vendor' => request()->processor_vendor,
+                                        'processor_manufacturer' => request()->processor_manufacturer,
                                         'processor_model' => request()->processor_model,
                                         'distribution' => request()->distribution,
                                         'kernel' => request()->kernel,
@@ -167,7 +167,7 @@
 @section('scripts')
 <script type="text/javascript">
     $(function() {
-        $('#device_type, #device_vendor, #device_model, #processor_vendor, #processor_model, #distribution, #kernel').select2({});
+        $('#device_type, #device_manufacturer, #device_model, #processor_manufacturer, #processor_model, #distribution, #kernel').select2({});
     });
 </script>
 @endsection

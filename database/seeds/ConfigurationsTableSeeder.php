@@ -5,6 +5,6 @@ class ConfigurationsTableSeeder extends Seeder
 {
     public function run()
     {
-        factory(Configuration::class, 500)->create();
+        factory(Configuration::class, 5000)->create();
     }
 }

@@ -10,9 +10,9 @@ class CreateConfigurationsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('device_type')->nullable()->default(null);
-            $table->string('device_vendor')->nullable()->default(null);
+            $table->string('device_manufacturer')->nullable()->default(null);
             $table->string('device_model')->nullable()->default(null);
-            $table->string('processor_vendor')->nullable()->default(null);
+            $table->string('processor_manufacturer')->nullable()->default(null);
             $table->string('processor_model')->nullable()->default(null);
             $table->string('distribution')->nullable()->default(null);
             $table->string('kernel')->nullable()->default(null);

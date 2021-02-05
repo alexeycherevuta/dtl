@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="form-group">
-                            <label for="processor_manufacturer" class="text-capitalize">Processor vendor</label>
+                            <label for="processor_manufacturer" class="text-capitalize">Processor manufacturer</label>
                             <select id="processor_manufacturer" class="form-control" name="processor_manufacturer">
                                 <option value="" {{ request()->processor_manufacturer ? '' : 'selected' }}>-</option>
                                 @foreach($processor_manufacturers as $processor_manufacturer)
@@ -97,11 +97,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-12">
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary text-uppercase font-weight-bold"
-                                value="Search" />
+                        <div class="form-group d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary text-uppercase font-weight-bold">
+                                <i class="fas fa-search mr-2"></i>Search
+                            </button>
+                            <a href="{{ route('configurations.index') }}"
+                                class="btn btn-warning text-uppercase font-weight-bold ml-0 mt-3 ml-sm-2 mt-sm-0">
+                                <i class="fas fa-trash mr-2"></i>Clear
+                            </a>
+                            <a href="{{ route('configurations.create') }}"
+                                class="btn btn-success text-uppercase font-weight-bold ml-0 mt-3 ml-sm-2 mt-sm-0">
+                                <i class="fas fa-plus mr-2"></i>Add
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +125,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Device</th>
-                        <th scope="col">Vendor</th>
+                        <th scope="col">Manufacturer</th>
                         <th scope="col">Model</th>
                         <th scope="col">Processor</th>
                         <th scope="col">Distribution</th>
@@ -127,7 +136,7 @@
                 <tbody>
                     @foreach ($configurations as $configuration)
                     <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
+                        <th scope="row">{{ $loop->iteration + request()->page*10 }}</th>
                         <td>{{ $configuration->device_type }}</td>
                         <td>{{ $configuration->device_manufacturer }}</td>
                         <td>{{ $configuration->device_model }}</td>

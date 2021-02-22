@@ -8,12 +8,11 @@
                 <div class="accordion my-3" id="accordionFilter">
                     <div class="card">
                         <div class="card-header py-0" id="headingDevice">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse"
-                                    data-target="#deviceCollapse" aria-expanded="true" aria-controls="deviceCollapse">
-                                    Device
-                                </button>
-                            </h2>
+                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
+                                data-target="#deviceCollapse" aria-expanded="true" aria-controls="deviceCollapse"
+                                data-parent="#filterConfigurationsForm">
+                                Device
+                            </button>
                         </div>
                         <div id="deviceCollapse" class="collapse show" aria-labelledby="headingDevice"
                             data-parent="#accordionFilter">
@@ -74,12 +73,11 @@
                     </div>
                     <div class="card">
                         <div class="card-header py-0" id="headingCpu">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#cpuCollapse" aria-expanded="false" aria-controls="cpuCollapse">
-                                    CPU
-                                </button>
-                            </h2>
+                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
+                                data-target="#cpuCollapse" aria-expanded="false" aria-controls="cpuCollapse"
+                                data-parent="#filterConfigurationsForm">
+                                CPU
+                            </button>
                         </div>
                         <div id="cpuCollapse" class="collapse show" aria-labelledby="headingCpu"
                             data-parent="#accordionFilter">
@@ -120,12 +118,11 @@
                     </div>
                     <div class="card">
                         <div class="card-header py-0" id="headingLinux">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseLinux" aria-expanded="false" aria-controls="collapseLinux">
-                                    Linux
-                                </button>
-                            </h2>
+                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
+                                data-target="#collapseLinux" aria-expanded="false" aria-controls="collapseLinux"
+                                data-parent="#filterConfigurationsForm">
+                                Linux
+                            </button>
                         </div>
                         <div id="collapseLinux" class="collapse show" aria-labelledby="headingLinux"
                             data-parent="#accordionFilter">
@@ -167,7 +164,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <div class="form-group d-flex justify-content-end">
+                        <div class="form-group d-flex justify-content-center justify-content-sm-end">
                             <a href="{{ route('configurations.create') }}"
                                 class="btn btn-success text-uppercase font-weight-bold">
                                 <i class="fas fa-plus mr-2"></i>Add
@@ -186,7 +183,7 @@
         </div>
     </div>
     @if ($configurations->isNotEmpty())
-    <div class="row my-5">
+    <div class="row my-3">
         <div class="col-12">
             <table class="table table-sm table-striped">
                 <thead>
@@ -218,7 +215,7 @@
             </table>
         </div>
     </div>
-    <div class="row my-5 align-items-center justify-content-center">
+    <div class="row mb-5 align-items-center justify-content-center">
         {{ $configurations->appends([
                                         'device_type' => request()->device_type,
                                         'device_manufacturer' => request()->device_manufacturer,

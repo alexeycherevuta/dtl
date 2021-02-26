@@ -7,13 +7,14 @@
                 @csrf
                 <div class="accordion my-3" id="accordionFilter">
                     <div class="card">
-                        <div class="card-header py-0" id="headingDevice">
-                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
-                                data-target="#deviceCollapse" aria-expanded="true" aria-controls="deviceCollapse"
-                                data-parent="#filterConfigurationsForm">
-                                Device
-                            </button>
-                        </div>
+                        <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
+                            aria-controls="deviceCollapse" data-parent="#filterConfigurationsForm">
+                            <div class="card-header py-0" id="headingDevice">
+                                <button class="btn btn-link dropdown-toggle">
+                                    Device
+                                </button>
+                            </div>
+                        </a>
                         <div id="deviceCollapse" class="collapse show" aria-labelledby="headingDevice"
                             data-parent="#accordionFilter">
                             <div class="card-body">
@@ -72,13 +73,14 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header py-0" id="headingCpu">
-                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
-                                data-target="#cpuCollapse" aria-expanded="false" aria-controls="cpuCollapse"
-                                data-parent="#filterConfigurationsForm">
-                                CPU
-                            </button>
-                        </div>
+                        <a type="button" data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
+                            aria-controls="cpuCollapse" data-parent="#filterConfigurationsForm">
+                            <div class="card-header py-0" id="headingCpu">
+                                <button class="btn btn-link dropdown-toggle">
+                                    CPU
+                                </button>
+                            </div>
+                        </a>
                         <div id="cpuCollapse" class="collapse show" aria-labelledby="headingCpu"
                             data-parent="#accordionFilter">
                             <div class="card-body">
@@ -117,13 +119,14 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header py-0" id="headingLinux">
-                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse"
-                                data-target="#collapseLinux" aria-expanded="false" aria-controls="collapseLinux"
-                                data-parent="#filterConfigurationsForm">
-                                Linux
-                            </button>
-                        </div>
+                        <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
+                            aria-controls="collapseLinux" data-parent="#filterConfigurationsForm">
+                            <div class="card-header py-0" id="headingLinux">
+                                <button class="btn btn-link dropdown-toggle">
+                                    Linux
+                                </button>
+                            </div>
+                        </a>
                         <div id="collapseLinux" class="collapse show" aria-labelledby="headingLinux"
                             data-parent="#accordionFilter">
                             <div class="card-body">

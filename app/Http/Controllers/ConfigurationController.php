@@ -40,7 +40,7 @@ class ConfigurationController extends Controller
         if (!empty(request()->kernel)) {
             $configurations->where('kernel', 'like', '%'.request()->kernel.'%');
         }
-        $configurations = $configurations->simplePaginate(10);
+        $configurations = $configurations->simplePaginate(25);
         $distinctValues = $this->distinctValues();
         return view('configurations.index', compact('configurations', 'distinctValues'));
     }

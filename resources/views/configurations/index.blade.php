@@ -10,7 +10,7 @@
                         <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
                             aria-controls="deviceCollapse" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0" id="headingDevice">
-                                <button class="btn btn-link dropdown-toggle">
+                                <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
                                     Device
                                 </button>
                             </div>
@@ -19,7 +19,7 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-2">
                                         <div class="form-group m-0">
                                             <label class="text-capitalize">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
@@ -76,7 +76,7 @@
                         <a type="button" data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
                             aria-controls="cpuCollapse" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0" id="headingCpu">
-                                <button class="btn btn-link dropdown-toggle">
+                                <button class="btn btn-link dropdown-toggle px-0">
                                     CPU
                                 </button>
                             </div>
@@ -122,7 +122,7 @@
                         <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
                             aria-controls="collapseLinux" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0" id="headingLinux">
-                                <button class="btn btn-link dropdown-toggle">
+                                <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
                                     Linux
                                 </button>
                             </div>
@@ -204,7 +204,7 @@
                 <tbody>
                     @foreach ($configurations as $configuration)
                     <tr>
-                        <th scope="row">{{ $loop->iteration + request()->page*10 }}</th>
+                        <th scope="row">{{ $loop->iteration + request()->page*25 }}</th>
                         <td>{{ $configuration->device_type }}</td>
                         <td>{{ $configuration->device_manufacturer }}</td>
                         <td>{{ $configuration->device_model }}</td>

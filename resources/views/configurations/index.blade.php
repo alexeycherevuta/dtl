@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row my-4">
+    <div class="row my-5">
         <div class="col-12">
             <form id="filterConfigurationsForm" method="get" action="{{ route('configurations.index') }}">
                 @csrf
@@ -19,7 +19,7 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col-2">
+                                    <div class="col">
                                         <div class="form-group m-0">
                                             <label class="text-capitalize">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
@@ -199,6 +199,7 @@
                         <th scope="col">Distribution</th>
                         <th scope="col">Kernel</th>
                         <th scope="col">Last edited</th>
+                        <th scope="col">Show</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -212,6 +213,10 @@
                         <td>{{ $configuration->distribution }}</td>
                         <td>{{ $configuration->kernel }}</td>
                         <td>{{ $configuration->updated_at->format('d.m.Y') }}</td>
+                        <td class="text-center">
+                            <a href="{{ route('configurations.show', $configuration->id) }}" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

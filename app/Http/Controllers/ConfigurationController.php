@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Configuration;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 class ConfigurationController extends Controller
 {
@@ -51,10 +52,22 @@ class ConfigurationController extends Controller
     }
     public function store(Request $request)
     {
-        return redirect()->route('configurations.index')->with('success', 'Submission successfull!');
+        Configuration::create([
+            'device_type' => $request->device_type,
+            'device_manufacturer' => $request->device_manufacturer,
+            'device_model' => $request->device_model,
+            'cpu_manufacturer' => $request->cpu_manufacturer,
+            'cpu_model' => $request->cpu_model,
+            'distribution' => $request->distribution,
+            'kernel' => $request->kernel,
+            'comment' => $request->comment,
+            'key' => Str::random(50),
+        ]);
+        return redirect()->route('configurations.index')->with('success', 'Thanks for your entry!');
     }
     public function show(Configuration $configuration)
     {
+        return view('configurations.show', compact('configuration'));
     }
     public function edit(Configuration $configuration)
     {

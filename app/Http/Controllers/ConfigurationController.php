@@ -52,7 +52,7 @@ class ConfigurationController extends Controller
     }
     public function store(Request $request)
     {
-        Configuration::create([
+        $configuration = Configuration::create([
             'device_type' => $request->device_type,
             'device_manufacturer' => $request->device_manufacturer,
             'device_model' => $request->device_model,
@@ -63,19 +63,34 @@ class ConfigurationController extends Controller
             'comment' => $request->comment,
             'key' => Str::random(50),
         ]);
-        return redirect()->route('configurations.index')->with('success', 'Thanks for your entry!');
+        return redirect()->route('configurations.edit', [$configuration->id, $configuration->key])->with('success', 'Configuration #'.$configuration->id.' successfully added. Thanks for your time!');
     }
     public function show(Configuration $configuration)
     {
         return view('configurations.show', compact('configuration'));
     }
-    public function edit(Configuration $configuration)
+    public function edit(Configuration $configuration, $key)
     {
+        $this->authorize('update', [$configuration, $key]);
+        $distinctValues = $this->distinctValues();
+        return view('configurations.edit', compact('configuration', 'distinctValues'));
     }
-    public function update(Request $request, Configuration $configuration)
+    public function update(Configuration $configuration, $key)
     {
+        $this->authorize('update', [$configuration, $key]);
+        $configuration->device_type = empty(request()->device_type) ? '' : request()->device_type;
+        $configuration->device_manufacturer = empty(request()->device_manufacturer) ? '' : request()->device_manufacturer;
+        $configuration->device_model = empty(request()->device_model) ? '' : request()->device_model;
+        $configuration->cpu_manufacturer = empty(request()->cpu_manufacturer) ? '' : request()->cpu_manufacturer;
+        $configuration->cpu_model = empty(request()->cpu_model) ? '' : request()->cpu_model;
+        $configuration->distribution = empty(request()->distribution) ? '' : request()->distribution;
+        $configuration->kernel = empty(request()->kernel) ? '' : request()->kernel;
+        $configuration->comment = empty(request()->comment) ? '' : request()->comment;
+        $configuration->save();
+        return redirect()->route('configurations.edit', [$configuration->id, $configuration->key])->with('success', 'Successfully updated Configuration #'.$configuration->id.'.');
     }
-    public function destroy(Configuration $configuration)
+    public function destroy(Configuration $configuration, $key)
     {
+        $this->authorize('delete', [$configuration, $key]);
     }
 }

@@ -3,6 +3,11 @@
 <div class="container">
     <div class="row my-5">
         <div class="col-12">
+            <h1>Create Configuration</h1>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-12">
             <form id="createConfigurationsForm" method="post" action="{{ route('configurations.store') }}">
                 @csrf
                 <h5 class="text-primary text-uppercase font-weight-bold">Device</h5>

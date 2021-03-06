@@ -199,7 +199,7 @@
                         <th scope="col">Distribution</th>
                         <th scope="col">Kernel</th>
                         <th scope="col">Last edited</th>
-                        <th scope="col">Show</th>
+                        <th scope="col" class="text-center">Show</th>
                     </tr>
                 </thead>
                 <tbody>

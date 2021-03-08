@@ -5,11 +5,11 @@
         <div class="col-12">
             <form id="filterConfigurationsForm" method="get" action="{{ route('configurations.index') }}">
                 @csrf
-                <div class="accordion my-3" id="accordionFilter">
+                <div class="accordion" id="accordionFilter">
                     <div class="card">
                         <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
                             aria-controls="deviceCollapse" data-parent="#filterConfigurationsForm">
-                            <div class="card-header py-0" id="headingDevice">
+                            <div class="card-header py-0 bg-dark" id="headingDevice">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
                                     Device
                                 </button>
@@ -21,7 +21,7 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label class="text-capitalize">Type</label>
+                                            <label class="text-capitalize font-weight-bold">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
                                                 <option value="" {{ request()->device_type ? '' : 'selected' }}>-
                                                 </option>
@@ -37,7 +37,7 @@
                                     <div class="col">
                                         <div class="form-group m-0">
                                             <label for="device_manufacturer"
-                                                class="text-capitalize">Manufacturer</label>
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="device_manufacturer" class="form-control"
                                                 name="device_manufacturer">
                                                 <option value="" {{ request()->device_manufacturer ? '' : 'selected' }}>
@@ -55,7 +55,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label for="device_model" class="text-capitalize">Model</label>
+                                            <label for="device_model"
+                                                class="text-capitalize font-weight-bold">Model</label>
                                             <select id="device_model" class="form-control" name="device_model">
                                                 <option value="" {{ request()->device_model ? '' : 'selected' }}>-
                                                 </option>
@@ -75,7 +76,7 @@
                     <div class="card">
                         <a type="button" data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
                             aria-controls="cpuCollapse" data-parent="#filterConfigurationsForm">
-                            <div class="card-header py-0" id="headingCpu">
+                            <div class="card-header py-0 bg-dark" id="headingCpu">
                                 <button class="btn btn-link dropdown-toggle px-0">
                                     CPU
                                 </button>
@@ -87,7 +88,8 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label for="cpu_manufacturer" class="text-capitalize">Manufacturer</label>
+                                            <label for="cpu_manufacturer"
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="cpu_manufacturer" class="form-control" name="cpu_manufacturer">
                                                 <option value="" {{ request()->cpu_manufacturer ? '' : 'selected' }}>-
                                                 </option>
@@ -102,7 +104,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label for="cpu_model" class="text-capitalize">Model</label>
+                                            <label for="cpu_model"
+                                                class="text-capitalize font-weight-bold">Model</label>
                                             <select id="cpu_model" class="form-control" name="cpu_model">
                                                 <option value="" {{ request()->cpu_model ? '' : 'selected' }}>-</option>
                                                 @foreach($distinctValues['cpu_models'] as $cpu_model)
@@ -121,7 +124,7 @@
                     <div class="card">
                         <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
                             aria-controls="collapseLinux" data-parent="#filterConfigurationsForm">
-                            <div class="card-header py-0" id="headingLinux">
+                            <div class="card-header py-0 bg-dark" id="headingLinux">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
                                     Linux
                                 </button>
@@ -133,7 +136,8 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label for="distribution" class="text-capitalize">Distribution</label>
+                                            <label for="distribution"
+                                                class="text-capitalize font-weight-bold">Distribution</label>
                                             <select id="distribution" class="form-control" name="distribution">
                                                 <option value="" {{ request()->distribution ? '' : 'selected' }}>-
                                                 </option>
@@ -148,7 +152,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group m-0">
-                                            <label for="kernel" class="text-capitalize">Kernel</label>
+                                            <label for="kernel" class="text-capitalize font-weight-bold">Kernel</label>
                                             <select id="kernel" class="form-control" name="kernel">
                                                 <option value="" {{ request()->kernel ? '' : 'selected' }}>-</option>
                                                 @foreach($distinctValues['kernels'] as $kernel)
@@ -189,7 +193,7 @@
     <div class="row my-3">
         <div class="col-12">
             <table class="table table-sm table-striped">
-                <thead>
+                <thead class="bg-dark text-white border-0">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Device</th>

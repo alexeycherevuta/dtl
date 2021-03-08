@@ -1,14 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    @if (session('success'))
     <div class="row my-5">
         <div class="col-12">
-            <div class="alert alert-success" role="alert">
-                <h5 class="font-weight-bold"><i class="fas fa-check-circle mr-2"></i>Success</h5>
-                {{ session('success') }}
-            </div>
-            <div class="alert alert-warning" role="alert">
+            <h1>Edit Configuration <strong>#{{ $configuration->id}}</strong></h1>
+            <div class="alert alert-warning mt-5" role="alert">
                 <h5 class="font-weight-bold"><i class="fas fa-exclamation-circle mr-2"></i>Attention</h5>
                 <strong>
                     Your unique edit link:
@@ -23,12 +19,6 @@
                 With this unique link you can always come back here and <strong>edit</strong> or <strong>delete</strong>
                 your configuration.
             </div>
-        </div>
-    </div>
-    @endif
-    <div class="row my-5">
-        <div class="col-12">
-            <h1>Edit Configuration <strong>#{{ $configuration->id}}</strong></h1>
         </div>
     </div>
     <div class="row my-5">
@@ -179,13 +169,21 @@
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn btn-success text-uppercase font-weight-bold font-weight-bold">
-                                <i class="fas fa-check mr-2"></i>Update
+                            <button id="buttonDeleteConfiguration" type="button"
+                                class="btn btn-danger text-uppercase font-weight-bold">
+                                <i class="fas fa-trash mr-2"></i>Delete
+                            </button>
+                            <button type="submit" class="btn btn-warning text-uppercase font-weight-bold ml-2">
+                                <i class="fas fa-check mr-2"></i>Edit
                             </button>
                         </div>
                     </div>
                 </div>
+            </form>
+            <form id="formDeleteConfiguration"
+                action="{{ route('configurations.destroy', [$configuration->id, $configuration->key]) }}" method="POST">
+                @csrf
+                @method('delete')
             </form>
         </div>
     </div>
@@ -194,6 +192,7 @@
 @section('scripts')
 <script type="text/javascript">
     $(function() {
+        /* SELECT 2 */
         $('#device_type').select2({
             placeholder: "Laptop, Desktop, ...",
             tags: true,
@@ -228,6 +227,13 @@
             placeholder: "4.20-rc4, 3.18-rc3, 5.2, ...",
             tags: true,
             maximumSelectionLength: 1,
+        });
+        /* DELETE CONFIGURATION */
+        $('#buttonDeleteConfiguration').click(function() {
+            $('#formDeleteConfiguration').submit();
+        });
+        $("#formDeleteConfiguration").on("submit", function(){
+            return confirm("Are you sure you want to delete this configuration?");
         });
     });
 </script>

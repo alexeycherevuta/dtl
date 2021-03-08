@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-sm-6 col-md-4">
             <h5 class="text-primary text-uppercase font-weight-bold">Device</h5>
             <p>
                 <strong>Type:</strong> {{ $configuration->device_type }} <br>
@@ -15,14 +15,14 @@
                 <strong>Model:</strong> {{ $configuration->device_model }}
             </p>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-sm-6 col-md-4">
             <h5 class="text-primary text-uppercase font-weight-bold">CPU</h5>
             <p>
                 <strong>Manufacturer:</strong> {{ $configuration->cpu_manufacturer }} <br>
                 <strong>Model:</strong> {{ $configuration->cpu_model }}
             </p>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-sm-6 col-md-4">
             <h5 class="text-primary text-uppercase font-weight-bold">Linux</h5>
             <p>
                 <strong>Distribution:</strong> {{ $configuration->distribution }} <br>

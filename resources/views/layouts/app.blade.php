@@ -13,6 +13,19 @@
 </head>
 <body>
     @include('layouts.navigation')
+    <div class="container" style="padding-top: 66px"></div>
+    @if (session('success'))
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="alert alert-success m-0" role="alert">
+                    <h5 class="font-weight-bold"><i class="fas fa-check-circle mr-2"></i>Success</h5>
+                    {{ session('success') }}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
     @yield('content')
     @include('layouts.footer')
     @yield('scripts')

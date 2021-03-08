@@ -12125,3 +12125,7 @@ a.text-dark:focus {
 .pagination {
   margin: 0;
 }
+.btn.btn-link.dropdown-toggle {
+  color: white;
+  font-weight: bold;
+}

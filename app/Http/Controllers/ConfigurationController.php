@@ -8,13 +8,13 @@ class ConfigurationController extends Controller
     public function distinctValues()
     {
         $distinctValues = [];
-        $distinctValues['device_types'] = Configuration::select('device_type AS name')->groupBy('device_type')->get();
-        $distinctValues['device_manufacturers'] = Configuration::select('device_manufacturer AS name')->groupBy('device_manufacturer')->get();
-        $distinctValues['device_models'] = Configuration::select('device_model AS name')->groupBy('device_model')->get();
-        $distinctValues['cpu_manufacturers'] = Configuration::select('cpu_manufacturer AS name')->groupBy('cpu_manufacturer')->get();
-        $distinctValues['cpu_models'] = Configuration::select('cpu_model AS name')->groupBy('cpu_model')->get();
-        $distinctValues['distributions'] = Configuration::select('distribution AS name')->groupBy('distribution')->get();
-        $distinctValues['kernels'] = Configuration::select('kernel AS name')->groupBy('kernel')->get();
+        $distinctValues['device_types'] = Configuration::select('device_type AS name')->whereNotNull('device_type')->groupBy('device_type')->get();
+        $distinctValues['device_manufacturers'] = Configuration::select('device_manufacturer AS name')->whereNotNull('device_manufacturer')->groupBy('device_manufacturer')->get();
+        $distinctValues['device_models'] = Configuration::select('device_model AS name')->whereNotNull('device_model')->groupBy('device_model')->get();
+        $distinctValues['cpu_manufacturers'] = Configuration::select('cpu_manufacturer AS name')->whereNotNull('cpu_manufacturer')->groupBy('cpu_manufacturer')->get();
+        $distinctValues['cpu_models'] = Configuration::select('cpu_model AS name')->whereNotNull('cpu_model')->groupBy('cpu_model')->get();
+        $distinctValues['distributions'] = Configuration::select('distribution AS name')->whereNotNull('distribution')->groupBy('distribution')->get();
+        $distinctValues['kernels'] = Configuration::select('kernel AS name')->whereNotNull('kernel')->groupBy('kernel')->get();
         return $distinctValues;
     }
     public function index()
@@ -63,7 +63,7 @@ class ConfigurationController extends Controller
             'comment' => $request->comment,
             'key' => Str::random(50),
         ]);
-        return redirect()->route('configurations.edit', [$configuration->id, $configuration->key])->with('success', 'Configuration #'.$configuration->id.' successfully added. Thanks for your time!');
+        return redirect()->route('configurations.edit', [$configuration->id, $configuration->key])->with('success', 'Configuration #'.$configuration->id.' successfully created. Thanks for your time!');
     }
     public function show(Configuration $configuration)
     {
@@ -78,19 +78,21 @@ class ConfigurationController extends Controller
     public function update(Configuration $configuration, $key)
     {
         $this->authorize('update', [$configuration, $key]);
-        $configuration->device_type = empty(request()->device_type) ? '' : request()->device_type;
-        $configuration->device_manufacturer = empty(request()->device_manufacturer) ? '' : request()->device_manufacturer;
-        $configuration->device_model = empty(request()->device_model) ? '' : request()->device_model;
-        $configuration->cpu_manufacturer = empty(request()->cpu_manufacturer) ? '' : request()->cpu_manufacturer;
-        $configuration->cpu_model = empty(request()->cpu_model) ? '' : request()->cpu_model;
-        $configuration->distribution = empty(request()->distribution) ? '' : request()->distribution;
-        $configuration->kernel = empty(request()->kernel) ? '' : request()->kernel;
-        $configuration->comment = empty(request()->comment) ? '' : request()->comment;
+        $configuration->device_type = empty(request()->device_type) ? null : request()->device_type;
+        $configuration->device_manufacturer = empty(request()->device_manufacturer) ? null : request()->device_manufacturer;
+        $configuration->device_model = empty(request()->device_model) ? null : request()->device_model;
+        $configuration->cpu_manufacturer = empty(request()->cpu_manufacturer) ? null : request()->cpu_manufacturer;
+        $configuration->cpu_model = empty(request()->cpu_model) ? null : request()->cpu_model;
+        $configuration->distribution = empty(request()->distribution) ? null : request()->distribution;
+        $configuration->kernel = empty(request()->kernel) ? null : request()->kernel;
+        $configuration->comment = empty(request()->comment) ? null : request()->comment;
         $configuration->save();
         return redirect()->route('configurations.edit', [$configuration->id, $configuration->key])->with('success', 'Successfully updated Configuration #'.$configuration->id.'.');
     }
     public function destroy(Configuration $configuration, $key)
     {
         $this->authorize('delete', [$configuration, $key]);
+        $configuration->delete();
+        return redirect()->route('configurations.index')->with('success', 'Configuration #'.$configuration->id.' successfully deleted!');
     }
 }

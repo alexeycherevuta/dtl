@@ -14,6 +14,9 @@ class CreateConfigurationsTable extends Migration
             $table->string('device_model')->nullable()->default(null);
             $table->string('cpu_manufacturer')->nullable()->default(null);
             $table->string('cpu_model')->nullable()->default(null);
+            $table->string('gpu_manufacturer')->nullable()->default(null);
+            $table->string('gpu_model')->nullable()->default(null);
+            $table->string('gpu_driver')->nullable()->default(null);
             $table->string('distribution')->nullable()->default(null);
             $table->string('kernel')->nullable()->default(null);
             $table->mediumText('comment')->nullable()->default(null);

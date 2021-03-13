@@ -12,6 +12,9 @@ $factory->define(Configuration::class, function (Faker $faker) {
     $cpu_model = ['i5-9400F', 'i7-9700K', 'i9-9900K', 'Ryzen 5 1600X', 'Ryzen 7 1700X',
                         'Ryzen 7 PRO 2700X', 'i5-8400', 'i3-8100', 'i7-8565U', 'Ryzen Threadripper 2990WX',
                         'Ryzen 5 3600X', 'Ryzen 9 3950X', 'Ryzen 7 2700U', 'Ryzen 3 3200U', 'Ryzen 5 3550H', ];
+    $gpu_manufacturer = ['NVIDIA', 'AMD', 'Intel'];
+    $gpu_model = ['RTX', 'Vega', 'HD 4000'];
+    $gpu_driver = ['Driver 1', 'Driver 2', 'Driver 3'];
     $distribution = ['Ubuntu 14.04', 'Ubuntu 16.10', 'Ubuntu 19.10', 'Ubuntu 18.04',
                 'ElementaryOS', 'Manjaro 18.1', 'Fedora 30', 'Fedora 28', 'Qubes OS',
                 'MX Linux', 'Mint', 'Solus', 'Deepin', 'CentOS', 'Debian', 'Pop!_OS', ];
@@ -22,6 +25,9 @@ $factory->define(Configuration::class, function (Faker $faker) {
         'device_model' => $device_model[array_rand($device_model)],
         'cpu_manufacturer' => $cpu_manufacturer[array_rand($cpu_manufacturer)],
         'cpu_model' => $cpu_model[array_rand($cpu_model)],
+        'gpu_manufacturer' => $gpu_manufacturer[array_rand($gpu_manufacturer)],
+        'gpu_model' => $gpu_model[array_rand($gpu_model)],
+        'gpu_driver' => $gpu_driver[array_rand($gpu_driver)],
         'distribution' => $distribution[array_rand($distribution)],
         'kernel' => $kernel[array_rand($kernel)],
         'comment' => $faker->text(500),

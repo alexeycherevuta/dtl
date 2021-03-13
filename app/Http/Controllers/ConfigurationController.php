@@ -5,18 +5,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 class ConfigurationController extends Controller
 {
-    public function distinctValues()
-    {
-        $distinctValues = [];
-        $distinctValues['device_types'] = Configuration::select('device_type AS name')->whereNotNull('device_type')->groupBy('device_type')->get();
-        $distinctValues['device_manufacturers'] = Configuration::select('device_manufacturer AS name')->whereNotNull('device_manufacturer')->groupBy('device_manufacturer')->get();
-        $distinctValues['device_models'] = Configuration::select('device_model AS name')->whereNotNull('device_model')->groupBy('device_model')->get();
-        $distinctValues['cpu_manufacturers'] = Configuration::select('cpu_manufacturer AS name')->whereNotNull('cpu_manufacturer')->groupBy('cpu_manufacturer')->get();
-        $distinctValues['cpu_models'] = Configuration::select('cpu_model AS name')->whereNotNull('cpu_model')->groupBy('cpu_model')->get();
-        $distinctValues['distributions'] = Configuration::select('distribution AS name')->whereNotNull('distribution')->groupBy('distribution')->get();
-        $distinctValues['kernels'] = Configuration::select('kernel AS name')->whereNotNull('kernel')->groupBy('kernel')->get();
-        return $distinctValues;
-    }
     public function index()
     {
         $configurations = Configuration::orderBy('updated_at', 'DESC');
@@ -35,6 +23,15 @@ class ConfigurationController extends Controller
         if (!empty(request()->cpu_model)) {
             $configurations->where('cpu_model', 'like', '%'.request()->cpu_model.'%');
         }
+        if (!empty(request()->gpu_manufacturer)) {
+            $configurations->where('gpu_manufacturer', 'like', '%'.request()->gpu_manufacturer.'%');
+        }
+        if (!empty(request()->gpu_model)) {
+            $configurations->where('gpu_model', 'like', '%'.request()->gpu_model.'%');
+        }
+        if (!empty(request()->gpu_driver)) {
+            $configurations->where('gpu_driver', 'like', '%'.request()->gpu_driver.'%');
+        }
         if (!empty(request()->distribution)) {
             $configurations->where('distribution', 'like', '%'.request()->distribution.'%');
         }
@@ -42,12 +39,12 @@ class ConfigurationController extends Controller
             $configurations->where('kernel', 'like', '%'.request()->kernel.'%');
         }
         $configurations = $configurations->simplePaginate(25);
-        $distinctValues = $this->distinctValues();
+        $distinctValues = Configuration::distinctValues();
         return view('configurations.index', compact('configurations', 'distinctValues'));
     }
     public function create()
     {
-        $distinctValues = $this->distinctValues();
+        $distinctValues = Configuration::distinctValues();
         return view('configurations.create', compact('distinctValues'));
     }
     public function store(Request $request)
@@ -58,6 +55,9 @@ class ConfigurationController extends Controller
             'device_model' => $request->device_model,
             'cpu_manufacturer' => $request->cpu_manufacturer,
             'cpu_model' => $request->cpu_model,
+            'gpu_manufacturer' => $request->gpu_manufacturer,
+            'gpu_model' => $request->gpu_model,
+            'gpu_driver' => $request->gpu_driver,
             'distribution' => $request->distribution,
             'kernel' => $request->kernel,
             'comment' => $request->comment,
@@ -72,7 +72,7 @@ class ConfigurationController extends Controller
     public function edit(Configuration $configuration, $key)
     {
         $this->authorize('update', [$configuration, $key]);
-        $distinctValues = $this->distinctValues();
+        $distinctValues = Configuration::distinctValues();
         return view('configurations.edit', compact('configuration', 'distinctValues'));
     }
     public function update(Configuration $configuration, $key)
@@ -83,6 +83,9 @@ class ConfigurationController extends Controller
         $configuration->device_model = empty(request()->device_model) ? null : request()->device_model;
         $configuration->cpu_manufacturer = empty(request()->cpu_manufacturer) ? null : request()->cpu_manufacturer;
         $configuration->cpu_model = empty(request()->cpu_model) ? null : request()->cpu_model;
+        $configuration->gpu_manufacturer = empty(request()->gpu_manufacturer) ? null : request()->gpu_manufacturer;
+        $configuration->gpu_model = empty(request()->gpu_model) ? null : request()->gpu_model;
+        $configuration->gpu_driver = empty(request()->gpu_driver) ? null : request()->gpu_driver;
         $configuration->distribution = empty(request()->distribution) ? null : request()->distribution;
         $configuration->kernel = empty(request()->kernel) ? null : request()->kernel;
         $configuration->comment = empty(request()->comment) ? null : request()->comment;

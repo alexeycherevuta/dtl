@@ -19,7 +19,7 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-3">
                                         <div class="form-group m-0">
                                             <label class="text-capitalize font-weight-bold">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
@@ -122,6 +122,70 @@
                         </div>
                     </div>
                     <div class="card">
+                        <a type="button" data-toggle="collapse" data-target="#gpuCollapse" aria-expanded="false"
+                            aria-controls="gpuCollapse" data-parent="#filterConfigurationsForm">
+                            <div class="card-header py-0 bg-dark" id="headingCpu">
+                                <button class="btn btn-link dropdown-toggle px-0">
+                                    GPU
+                                </button>
+                            </div>
+                        </a>
+                        <div id="gpuCollapse" class="collapse show" aria-labelledby="headingCpu"
+                            data-parent="#accordionFilter">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group m-0">
+                                            <label for="gpu_manufacturer"
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
+                                            <select id="gpu_manufacturer" class="form-control" name="gpu_manufacturer">
+                                                <option value="" {{ request()->gpu_manufacturer ? '' : 'selected' }}>-
+                                                </option>
+                                                @foreach($distinctValues['gpu_manufacturers'] as $gpu_manufacturer)
+                                                <option value="{{ $gpu_manufacturer->name }}"
+                                                    {{ request()->gpu_manufacturer == $gpu_manufacturer->name ? 'selected' : '' }}>
+                                                    {{ $gpu_manufacturer->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group m-0">
+                                            <label for="gpu_model"
+                                                class="text-capitalize font-weight-bold">Model</label>
+                                            <select id="gpu_model" class="form-control" name="gpu_model">
+                                                <option value="" {{ request()->gpu_model ? '' : 'selected' }}>-</option>
+                                                @foreach($distinctValues['gpu_models'] as $gpu_model)
+                                                <option value="{{ $gpu_model->name }}"
+                                                    {{ request()->gpu_model == $gpu_model->name ? 'selected' : '' }}>
+                                                    {{ $gpu_model->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group m-0">
+                                            <label for="gpu_driver"
+                                                class="text-capitalize font-weight-bold">Driver</label>
+                                            <select id="gpu_driver" class="form-control" name="gpu_driver">
+                                                <option value="" {{ request()->gpu_driver ? '' : 'selected' }}>-
+                                                </option>
+                                                @foreach($distinctValues['gpu_drivers'] as $gpu_driver)
+                                                <option value="{{ $gpu_driver->name }}"
+                                                    {{ request()->gpu_driver == $gpu_driver->name ? 'selected' : '' }}>
+                                                    {{ $gpu_driver->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
                         <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
                             aria-controls="collapseLinux" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0 bg-dark" id="headingLinux">
@@ -195,11 +259,13 @@
             <table class="table table-sm table-striped">
                 <thead class="bg-dark text-white border-0">
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="text-center">#</th>
                         <th scope="col">Device</th>
                         <th scope="col">Manufacturer</th>
                         <th scope="col">Model</th>
                         <th scope="col">CPU</th>
+                        <th scope="col">GPU</th>
+                        <th scope="col">Driver</th>
                         <th scope="col">Distribution</th>
                         <th scope="col">Kernel</th>
                         <th scope="col">Last edited</th>
@@ -209,11 +275,15 @@
                 <tbody>
                     @foreach ($configurations as $configuration)
                     <tr>
-                        <th scope="row">{{ $loop->iteration + request()->page*25 }}</th>
+                        <th scope="row" class="text-center">
+                            {{ request()->page ? $loop->iteration+(request()->page-1)*25 : $loop->iteration }}
+                        </th>
                         <td>{{ $configuration->device_type }}</td>
                         <td>{{ $configuration->device_manufacturer }}</td>
                         <td>{{ $configuration->device_model }}</td>
                         <td>{{ $configuration->cpu_model }}</td>
+                        <td>{{ $configuration->gpu_model }}</td>
+                        <td>{{ $configuration->gpu_driver }}</td>
                         <td>{{ $configuration->distribution }}</td>
                         <td>{{ $configuration->kernel }}</td>
                         <td>{{ $configuration->updated_at->format('d.m.Y') }}</td>
@@ -234,6 +304,9 @@
                                         'device_model' => request()->device_model,
                                         'cpu_manufacturer' => request()->cpu_manufacturer,
                                         'cpu_model' => request()->cpu_model,
+                                        'gpu_manufacturer' => request()->gpu_manufacturer,
+                                        'gpu_model' => request()->gpu_model,
+                                        'gpu_driver' => request()->gpu_driver,
                                         'distribution' => request()->distribution,
                                         'kernel' => request()->kernel,
                                     ])->links() }}
@@ -253,7 +326,7 @@
 @section('scripts')
 <script type="text/javascript">
     $(function() {
-        $('#device_type, #device_manufacturer, #device_model, #cpu_manufacturer, #cpu_model, #distribution, #kernel').select2({});
+        $('#device_type, #device_manufacturer, #device_model, #cpu_manufacturer, #cpu_model, #gpu_manufacturer, #gpu_model, #gpu_driver,  #distribution, #kernel').select2({});
     });
 </script>
 @endsection

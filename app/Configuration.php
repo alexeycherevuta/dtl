@@ -24,4 +24,12 @@ class Configuration extends Model
         $distinctValues['kernels'] = Configuration::select('kernel AS name')->whereNotNull('kernel')->groupBy('kernel')->get();
         return $distinctValues;
     }
+    public function editUrl()
+    {
+        return route('configurations.edit', [$this->id, $this->key]);
+    }
+    public function destroyUrl()
+    {
+        return route('configurations.destroy', [$this->id, $this->key]);
+    }
 }

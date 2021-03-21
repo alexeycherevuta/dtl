@@ -1,5 +1,5 @@
 @component('mail::message')
-# Configuration created: #{{ $configuration->id }}
+# Configuration updated: #{{ $configuration->id }}
 *Date: {{ $configuration->created_at->format('d.m.Y | H:i:s') }}*
 ## Device
 **Type:** "{{ $configuration->device_type }}" <br>

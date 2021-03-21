@@ -4,7 +4,7 @@ use App\Configuration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-class ConfigurationCreated extends Mailable
+class ConfigurationUpdated extends Mailable
 {
     use Queueable, SerializesModels;
     private $configuration;
@@ -15,7 +15,7 @@ class ConfigurationCreated extends Mailable
     public function build()
     {
         return $this->to(env('ADMIN_EMAIL'))
-                    ->subject('Configuration created: #'.$this->configuration->id.' ['.$this->configuration->created_at->format('d.m.Y | H:i:s').']')
-                    ->markdown('emails.configurations.created', ['configuration' => $this->configuration]);
+                    ->subject('Configuration updated: #'.$this->configuration->id.' ['.$this->configuration->updated_at->format('d.m.Y | H:i:s').']')
+                    ->markdown('emails.configurations.updated', ['configuration' => $this->configuration]);
     }
 }

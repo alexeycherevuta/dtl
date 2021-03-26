@@ -6,7 +6,7 @@
             <h1>Configuration <strong>#{{ $configuration->id }}</strong></h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row my-3">
         <div class="col-12 col-sm-6 col-md-4">
             <h5 class="text-primary text-uppercase font-weight-bold">Device</h5>
             <p>
@@ -23,6 +23,16 @@
             </p>
         </div>
         <div class="col-12 col-sm-6 col-md-4">
+            <h5 class="text-primary text-uppercase font-weight-bold">GPU</h5>
+            <p>
+                <strong>Manufacturer:</strong> {{ $configuration->gpu_manufacturer }} <br>
+                <strong>Model:</strong> {{ $configuration->gpu_model }} <br>
+                <strong>Driver:</strong> {{ $configuration->gpu_driver }}
+            </p>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col-12 col-sm-6 col-md-4">
             <h5 class="text-primary text-uppercase font-weight-bold">Linux</h5>
             <p>
                 <strong>Distribution:</strong> {{ $configuration->distribution }} <br>
@@ -30,7 +40,7 @@
             </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row my-3">
         <div class="col-12">
             <h5 class="text-primary text-uppercase font-weight-bold">Meta</h5>
             <p>

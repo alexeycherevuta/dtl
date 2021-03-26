@@ -4,7 +4,6 @@
     <div class="row my-5">
         <div class="col-12">
             <form id="filterConfigurationsForm" method="get" action="{{ route('configurations.index') }}">
-                @csrf
                 <div class="accordion" id="accordionFilter">
                     <div class="card">
                         <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"

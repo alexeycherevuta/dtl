@@ -212,14 +212,7 @@
                             <div class="card-body">
                                 <p class="text-muted">
                                     <i class="fas fa-info-circle"></i>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod error tempore quas
-                                    ipsam
-                                    ipsum
-                                    non
-                                    expedita odio, laboriosam, velit ipsa iste deleniti cum reiciendis ad soluta nobis
-                                    iure
-                                    a
-                                    temporibus.
+                                    Find out Kernel version: uname -srm
                                 </p>
                                 <div class="form-row">
                                     <div class="col">

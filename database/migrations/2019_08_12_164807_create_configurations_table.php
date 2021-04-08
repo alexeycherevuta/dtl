@@ -8,7 +8,6 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('device_type')->nullable()->default(null);
             $table->string('device_manufacturer')->nullable()->default(null);
             $table->string('device_model')->nullable()->default(null);
@@ -21,6 +20,7 @@ class CreateConfigurationsTable extends Migration
             $table->string('kernel')->nullable()->default(null);
             $table->mediumText('comment')->nullable()->default(null);
             $table->string('key')->nullable()->default(null);
+            $table->timestamps();
         });
     }
     public function down()

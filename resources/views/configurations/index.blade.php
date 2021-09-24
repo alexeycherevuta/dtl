@@ -6,7 +6,7 @@
             <form id="filterConfigurationsForm" method="get" action="{{ route('configurations.index') }}">
                 <div class="accordion" id="accordionFilter">
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
+                        <a data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
                             aria-controls="deviceCollapse" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0 bg-dark" id="headingDevice">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
                             aria-controls="cpuCollapse" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0 bg-dark" id="headingCpu">
                                 <button class="btn btn-link dropdown-toggle px-0">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#gpuCollapse" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#gpuCollapse" aria-expanded="false"
                             aria-controls="gpuCollapse" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0 bg-dark" id="headingCpu">
                                 <button class="btn btn-link dropdown-toggle px-0">
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
                             aria-controls="collapseLinux" data-parent="#filterConfigurationsForm">
                             <div class="card-header py-0 bg-dark" id="headingLinux">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">

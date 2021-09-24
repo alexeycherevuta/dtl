@@ -29,7 +29,7 @@
                 @method('PATCH')
                 <div class="accordion" id="accordionCreate">
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
+                        <a data-toggle="collapse" data-target="#deviceCollapse" aria-expanded="true"
                             aria-controls="deviceCollapse" data-parent="#editConfigurationForm">
                             <div class="card-header py-0 bg-dark" id="headingDevice">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
@@ -55,8 +55,8 @@
                                             <label class="font-weight-bold">Type:</label>
                                             <select id="device_type" class="form-control" name="device_type" multiple>
                                                 @foreach($distinctValues['device_types'] as $device_type)
-                                                <option value="{{ $device_type->name }}"
-                                                    @if ($device_type->name == $configuration->device_type)
+                                                <option value="{{ $device_type->name }}" @if ($device_type->name ==
+                                                    $configuration->device_type)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $device_type->name }}
@@ -71,9 +71,10 @@
                                                 class="font-weight-bold">Manufacturer:</label>
                                             <select id="device_manufacturer" class="form-control"
                                                 name="device_manufacturer" multiple>
-                                                @foreach($distinctValues['device_manufacturers'] as $device_manufacturer)
-                                                <option value="{{ $device_manufacturer->name }}"
-                                                    @if ($device_manufacturer->name == $configuration->device_manufacturer)
+                                                @foreach($distinctValues['device_manufacturers'] as
+                                                $device_manufacturer)
+                                                <option value="{{ $device_manufacturer->name }}" @if
+                                                    ($device_manufacturer->name == $configuration->device_manufacturer)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $device_manufacturer->name }}
@@ -87,8 +88,8 @@
                                             <label for="device_model" class="font-weight-bold">Model:</label>
                                             <select id="device_model" class="form-control" name="device_model" multiple>
                                                 @foreach($distinctValues['device_models'] as $device_model)
-                                                <option value="{{ $device_model->name }}"
-                                                    @if ($device_model->name == $configuration->device_model)
+                                                <option value="{{ $device_model->name }}" @if ($device_model->name ==
+                                                    $configuration->device_model)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $device_model->name }}
@@ -102,7 +103,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#cpuCollapse" aria-expanded="false"
                             aria-controls="cpuCollapse" data-parent="#editConfigurationForm">
                             <div class="card-header py-0 bg-dark" id="headingCpu">
                                 <button class="btn btn-link dropdown-toggle px-0">
@@ -131,8 +132,8 @@
                                             <select id="cpu_manufacturer" class="form-control" name="cpu_manufacturer"
                                                 multiple>
                                                 @foreach($distinctValues['cpu_manufacturers'] as $cpu_manufacturer)
-                                                <option value="{{ $cpu_manufacturer->name }}"
-                                                    @if ($cpu_manufacturer->name == $configuration->cpu_manufacturer)
+                                                <option value="{{ $cpu_manufacturer->name }}" @if ($cpu_manufacturer->
+                                                    name == $configuration->cpu_manufacturer)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $cpu_manufacturer->name }}
@@ -146,8 +147,8 @@
                                             <label for="cpu_model" class="font-weight-bold">Model:</label>
                                             <select id="cpu_model" class="form-control" name="cpu_model" multiple>
                                                 @foreach($distinctValues['cpu_models'] as $cpu_model)
-                                                <option value="{{ $cpu_model->name }}"
-                                                    @if ($cpu_model->name == $configuration->cpu_model)
+                                                <option value="{{ $cpu_model->name }}" @if ($cpu_model->name ==
+                                                    $configuration->cpu_model)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $cpu_model->name }}
@@ -161,7 +162,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#gpuCollapse" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#gpuCollapse" aria-expanded="false"
                             aria-controls="gpuCollapse" data-parent="#editConfigurationForm">
                             <div class="card-header py-0 bg-dark" id="headingCpu">
                                 <button class="btn btn-link dropdown-toggle px-0">
@@ -191,8 +192,8 @@
                                             <select id="gpu_manufacturer" class="form-control" name="gpu_manufacturer"
                                                 multiple>
                                                 @foreach($distinctValues['gpu_manufacturers'] as $gpu_manufacturer)
-                                                <option value="{{ $gpu_manufacturer->name }}"
-                                                    @if ($gpu_manufacturer->name == $configuration->gpu_manufacturer)
+                                                <option value="{{ $gpu_manufacturer->name }}" @if ($gpu_manufacturer->
+                                                    name == $configuration->gpu_manufacturer)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $gpu_manufacturer->name }}
@@ -207,8 +208,8 @@
                                                 class="text-capitalize font-weight-bold">Model</label>
                                             <select id="gpu_model" class="form-control" name="gpu_model" multiple>
                                                 @foreach($distinctValues['gpu_models'] as $gpu_model)
-                                                <option value="{{ $gpu_model->name }}"
-                                                    @if ($gpu_model->name == $configuration->gpu_model)
+                                                <option value="{{ $gpu_model->name }}" @if ($gpu_model->name ==
+                                                    $configuration->gpu_model)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $gpu_model->name }}
@@ -223,8 +224,8 @@
                                                 class="text-capitalize font-weight-bold">Driver</label>
                                             <select id="gpu_driver" class="form-control" name="gpu_driver" multiple>
                                                 @foreach($distinctValues['gpu_drivers'] as $gpu_driver)
-                                                <option value="{{ $gpu_driver->name }}"
-                                                    @if ($gpu_driver->name == $configuration->gpu_driver)
+                                                <option value="{{ $gpu_driver->name }}" @if ($gpu_driver->name ==
+                                                    $configuration->gpu_driver)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $gpu_driver->name }}
@@ -238,7 +239,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#collapseLinux" aria-expanded="false"
                             aria-controls="collapseLinux" data-parent="#editConfigurationForm">
                             <div class="card-header py-0 bg-dark" id="headingLinux">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">
@@ -292,7 +293,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <a type="button" data-toggle="collapse" data-target="#collapseMeta" aria-expanded="false"
+                        <a data-toggle="collapse" data-target="#collapseMeta" aria-expanded="false"
                             aria-controls="collapseMeta" data-parent="#editConfigurationForm">
                             <div class="card-header py-0 bg-dark" id="headingMeta">
                                 <button class="btn btn-link dropdown-toggle px-0 text-uppercase">

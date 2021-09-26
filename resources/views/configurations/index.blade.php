@@ -18,8 +18,8 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col-3">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label class="text-capitalize font-weight-bold">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
                                                 <option value="" {{ request()->device_type ? '' : 'selected' }}>-
@@ -33,8 +33,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label for="device_manufacturer"
                                                 class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="device_manufacturer" class="form-control"
@@ -52,8 +52,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label for="device_model"
                                                 class="text-capitalize font-weight-bold">Model</label>
                                             <select id="device_model" class="form-control" name="device_model">
@@ -85,8 +85,8 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
                                             <label for="cpu_manufacturer"
                                                 class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="cpu_manufacturer" class="form-control" name="cpu_manufacturer">
@@ -101,8 +101,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
                                             <label for="cpu_model"
                                                 class="text-capitalize font-weight-bold">Model</label>
                                             <select id="cpu_model" class="form-control" name="cpu_model">
@@ -133,8 +133,8 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label for="gpu_manufacturer"
                                                 class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="gpu_manufacturer" class="form-control" name="gpu_manufacturer">
@@ -149,8 +149,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label for="gpu_model"
                                                 class="text-capitalize font-weight-bold">Model</label>
                                             <select id="gpu_model" class="form-control" name="gpu_model">
@@ -164,8 +164,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-group">
                                             <label for="gpu_driver"
                                                 class="text-capitalize font-weight-bold">Driver</label>
                                             <select id="gpu_driver" class="form-control" name="gpu_driver">
@@ -197,8 +197,8 @@
                             data-parent="#accordionFilter">
                             <div class="card-body">
                                 <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
                                             <label for="distribution"
                                                 class="text-capitalize font-weight-bold">Distribution</label>
                                             <select id="distribution" class="form-control" name="distribution">
@@ -213,8 +213,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group m-0">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
                                             <label for="kernel" class="text-capitalize font-weight-bold">Kernel</label>
                                             <select id="kernel" class="form-control" name="kernel">
                                                 <option value="" {{ request()->kernel ? '' : 'selected' }}>-</option>

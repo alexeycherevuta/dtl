@@ -33,7 +33,7 @@
                                     temporibus.
                                 </p>
                                 <div class="form-row">
-                                    <div class="col-3">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label class="font-weight-bold">Type:</label>
                                             <select id="device_type" class="form-control" name="device_type" multiple>
@@ -45,7 +45,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="device_manufacturer"
                                                 class="font-weight-bold">Manufacturer:</label>
@@ -60,7 +60,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="device_model" class="font-weight-bold">Model:</label>
                                             <select id="device_model" class="form-control" name="device_model" multiple>
@@ -101,7 +101,7 @@
                                     temporibus.
                                 </p>
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="cpu_manufacturer" class="font-weight-bold">Manufacturer:</label>
                                             <select id="cpu_manufacturer" class="form-control" name="cpu_manufacturer"
@@ -114,7 +114,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="cpu_model" class="font-weight-bold">Model:</label>
                                             <select id="cpu_model" class="form-control" name="cpu_model" multiple>
@@ -154,7 +154,7 @@
                                     temporibus.
                                 </p>
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_manufacturer"
                                                 class="text-capitalize font-weight-bold">Manufacturer</label>
@@ -168,7 +168,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_model"
                                                 class="text-capitalize font-weight-bold">Model</label>
@@ -181,7 +181,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_driver"
                                                 class="text-capitalize font-weight-bold">Driver</label>
@@ -215,7 +215,7 @@
                                     Find out Kernel version: uname -srm
                                 </p>
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="distribution" class="font-weight-bold">Distribution:</label>
                                             <select id="distribution" class="form-control" name="distribution" multiple>
@@ -227,7 +227,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="kernel" class="font-weight-bold">Kernel:</label>
                                             <select id="kernel" class="form-control" name="kernel" multiple>

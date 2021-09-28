@@ -253,7 +253,7 @@
         </div>
     </div>
     @if ($configurations->isNotEmpty())
-    <div class="row my-3">
+    <div id="table" class="row my-3">
         <div class="col-12">
             <table class="table table-sm table-striped">
                 <thead class="bg-dark text-white border-0">

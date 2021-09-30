@@ -71,10 +71,9 @@
                                                 class="font-weight-bold">Manufacturer:</label>
                                             <select id="device_manufacturer" class="form-control"
                                                 name="device_manufacturer" multiple>
-                                                @foreach($distinctValues['device_manufacturers'] as
-                                                $device_manufacturer)
-                                                <option value="{{ $device_manufacturer->name }}" @if
-                                                    ($device_manufacturer->name == $configuration->device_manufacturer)
+                                                @foreach($distinctValues['device_manufacturers'] as $dev_man)
+                                                <option value="{{ $dev_man->name }}" @if ($dev_man->name ==
+                                                    $configuration->device_manufacturer)
                                                     selected="selected"
                                                     @endif>
                                                     {{ $device_manufacturer->name }}

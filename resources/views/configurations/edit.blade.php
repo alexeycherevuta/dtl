@@ -76,7 +76,7 @@
                                                     $configuration->device_manufacturer)
                                                     selected="selected"
                                                     @endif>
-                                                    {{ $device_manufacturer->name }}
+                                                    {{ $dev_man->name }}
                                                 </option>
                                                 @endforeach
                                             </select>

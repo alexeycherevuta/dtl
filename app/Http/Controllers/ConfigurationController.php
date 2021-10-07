@@ -49,6 +49,9 @@ class ConfigurationController extends Controller
     }
     public function store(Request $request)
     {
+        request()->validate([
+            'distribution' => ['string'],
+        ]);
         $configuration = Configuration::create([
             'device_type' => $request->device_type,
             'device_manufacturer' => $request->device_manufacturer,
@@ -78,6 +81,9 @@ class ConfigurationController extends Controller
     public function update(Configuration $configuration, $key)
     {
         $this->authorize('update', [$configuration, $key]);
+        request()->validate([
+            'distribution' => ['string'],
+        ]);
         $configuration->device_type = empty(request()->device_type) ? null : request()->device_type;
         $configuration->device_manufacturer = empty(request()->device_manufacturer) ? null : request()->device_manufacturer;
         $configuration->device_model = empty(request()->device_model) ? null : request()->device_model;

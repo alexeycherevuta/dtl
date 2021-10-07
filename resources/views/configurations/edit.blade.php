@@ -264,7 +264,8 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="distribution" class="font-weight-bold">Distribution:</label>
-                                            <select id="distribution" class="form-control" name="distribution" multiple>
+                                            <select id="distribution" class="form-control" name="distribution" multiple
+                                                required>
                                                 @foreach($distinctValues['distributions'] as $distribution)
                                                 <option value="{{ $distribution->name }}" @if ($distribution->name ==
                                                     $configuration->distribution) selected="selected" @endif>

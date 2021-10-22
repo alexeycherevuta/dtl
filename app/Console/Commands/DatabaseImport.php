@@ -21,8 +21,7 @@ class DatabaseImport extends Command
             $file = file_get_contents('./database/data/dumps/'.$filename);
         }
         $configurations = json_decode($file, true);
-        $i = 1;
-        dump('Starting import...');
+        $i = 1; 
         foreach ($configurations as $configuration) {
             Configuration::create([
                 'device_type' => $configuration['device_type'],
@@ -38,9 +37,8 @@ class DatabaseImport extends Command
                 'comment' => $configuration['comment'],
                 'key' => $configuration['key'],
             ]);
-            dump('Created #'.$i);
+            dump($i);
             ++$i;
         }
-        dump('Done.');
     }
 }

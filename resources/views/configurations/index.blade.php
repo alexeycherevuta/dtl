@@ -20,7 +20,7 @@
                                 <div class="form-row">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
-                                            <label class="text-capitalize font-weight-bold">Type:</label>
+                                            <label class="text-capitalize font-weight-bold">Type</label>
                                             <select id="device_type" class="form-control" name="device_type">
                                                 <option value="" {{ request()->device_type ? '' : 'selected' }}>-
                                                 </option>
@@ -36,7 +36,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="device_manufacturer"
-                                                class="text-capitalize font-weight-bold">Manufacturer:</label>
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="device_manufacturer" class="form-control"
                                                 name="device_manufacturer">
                                                 <option value="" {{ request()->device_manufacturer ? '' : 'selected' }}>
@@ -55,7 +55,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="device_model"
-                                                class="text-capitalize font-weight-bold">Model:</label>
+                                                class="text-capitalize font-weight-bold">Model</label>
                                             <select id="device_model" class="form-control" name="device_model">
                                                 <option value="" {{ request()->device_model ? '' : 'selected' }}>-
                                                 </option>
@@ -88,7 +88,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="cpu_manufacturer"
-                                                class="text-capitalize font-weight-bold">Manufacturer:</label>
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="cpu_manufacturer" class="form-control" name="cpu_manufacturer">
                                                 <option value="" {{ request()->cpu_manufacturer ? '' : 'selected' }}>-
                                                 </option>
@@ -104,7 +104,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="cpu_model"
-                                                class="text-capitalize font-weight-bold">Model:</label>
+                                                class="text-capitalize font-weight-bold">Model</label>
                                             <select id="cpu_model" class="form-control" name="cpu_model">
                                                 <option value="" {{ request()->cpu_model ? '' : 'selected' }}>-</option>
                                                 @foreach($distinctValues['cpu_models'] as $cpu_model)
@@ -136,7 +136,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="gpu_manufacturer"
-                                                class="text-capitalize font-weight-bold">Manufacturer:</label>
+                                                class="text-capitalize font-weight-bold">Manufacturer</label>
                                             <select id="gpu_manufacturer" class="form-control" name="gpu_manufacturer">
                                                 <option value="" {{ request()->gpu_manufacturer ? '' : 'selected' }}>-
                                                 </option>
@@ -152,7 +152,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="gpu_model"
-                                                class="text-capitalize font-weight-bold">Model:</label>
+                                                class="text-capitalize font-weight-bold">Model</label>
                                             <select id="gpu_model" class="form-control" name="gpu_model">
                                                 <option value="" {{ request()->gpu_model ? '' : 'selected' }}>-</option>
                                                 @foreach($distinctValues['gpu_models'] as $gpu_model)
@@ -167,7 +167,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="gpu_driver"
-                                                class="text-capitalize font-weight-bold">Driver:</label>
+                                                class="text-capitalize font-weight-bold">Driver</label>
                                             <select id="gpu_driver" class="form-control" name="gpu_driver">
                                                 <option value="" {{ request()->gpu_driver ? '' : 'selected' }}>-
                                                 </option>
@@ -200,7 +200,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="distribution"
-                                                class="text-capitalize font-weight-bold">Distribution:</label>
+                                                class="text-capitalize font-weight-bold">Distribution</label>
                                             <select id="distribution" class="form-control" name="distribution">
                                                 <option value="" {{ request()->distribution ? '' : 'selected' }}>-
                                                 </option>
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="kernel" class="text-capitalize font-weight-bold">Kernel:</label>
+                                            <label for="kernel" class="text-capitalize font-weight-bold">Kernel</label>
                                             <select id="kernel" class="form-control" name="kernel">
                                                 <option value="" {{ request()->kernel ? '' : 'selected' }}>-</option>
                                                 @foreach($distinctValues['kernels'] as $kernel)

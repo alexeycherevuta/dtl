@@ -157,7 +157,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_manufacturer"
-                                                class="text-capitalize font-weight-bold">Manufacturer</label>
+                                                class="text-capitalize font-weight-bold">Manufacturer:</label>
                                             <select id="gpu_manufacturer" class="form-control" name="gpu_manufacturer"
                                                 multiple>
                                                 @foreach($distinctValues['gpu_manufacturers'] as $gpu_manufacturer)
@@ -171,7 +171,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_model"
-                                                class="text-capitalize font-weight-bold">Model</label>
+                                                class="text-capitalize font-weight-bold">Model:</label>
                                             <select id="gpu_model" class="form-control" name="gpu_model" multiple>
                                                 @foreach($distinctValues['gpu_models'] as $gpu_model)
                                                 <option value="{{ $gpu_model->name }}">
@@ -184,7 +184,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group m-0">
                                             <label for="gpu_driver"
-                                                class="text-capitalize font-weight-bold">Driver</label>
+                                                class="text-capitalize font-weight-bold">Driver:</label>
                                             <select id="gpu_driver" class="form-control" name="gpu_driver" multiple>
                                                 @foreach($distinctValues['gpu_drivers'] as $gpu_driver)
                                                 <option value="{{ $gpu_driver->name }}">

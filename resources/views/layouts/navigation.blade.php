@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
     <div class="container">
-        <i class="fab fa-linux text-white" style="font-size: 50px"></i>
-        <a class="navbar-brand font-weight-bold ml-md-3 mr-0" href="{{ url('/') }}">
+        <a class="navbar-brand font-weight-bold" href="{{ url('/') }}">
             <h3 class="m-0">
                 {{ config('app.name', 'Laravel') }}
             </h3>

@@ -30,6 +30,7 @@ class CreateConfigurationsTable extends Migration
             $table->index('kernel');
             $table->mediumText('comment')->nullable()->default(null);
             $table->string('key')->nullable()->default(null);
+            $table->string('protondb_timestamp')->nullable()->default(null);
             $table->timestamps();
         });
     }

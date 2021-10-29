@@ -37,6 +37,7 @@ class DatabaseImport extends Command
                 'kernel' => $configuration['kernel'],
                 'comment' => $configuration['comment'],
                 'key' => $configuration['key'],
+                'protondb_timestamp' => $configuration['protondb_timestamp'],
             ]);
             dump('Created #'.$i);
             ++$i;
